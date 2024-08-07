@@ -13,8 +13,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(175, 500,175,height/3);
   
   fill(0)
+  //left
   arc(350, 450, arcBass+10, arcBass, 270, 90);
-
+  //right
   arc(175, 450, arcBass+10, arcBass, 90, 270);
    
 }
