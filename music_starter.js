@@ -5,19 +5,46 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
+  
+  // //square()
 
-  let arcBass = map(bass,0,100,100,115);
-  strokeWeight(10);
-  line(175, height/3,350,height/3);
+  
+  strokeWeight(35)
+  line(100, height-180,240,height/1.5);
   line(350, 500,350,height/3);
   line(175, 500,175,height/3);
   
-  fill(0)
-  //left
-  arc(350, 450, arcBass+10, arcBass, 270, 90);
-  //right
-  arc(175, 450, arcBass+10, arcBass, 90, 270);
-   
+  noStroke()
+  fill(70)
+  ellipse(width/2,height/2,550)//disk
+
+  fill(225)
+  ellipse(width/2,height/2,270)//inside disk
+
+  
+
+  // let arcBass = map(bass,0,100,100,115);
+  // strokeWeight(10);
+  // line(175, height/3,350,height/3);
+  // line(350, 500,350,height/3);
+  // line(175, 500,175,height/3);
+  
+
+  // fill(0)
+  // //left
+  // arc(350, 450, arcBass+10, arcBass, 270, 90);
+  // //right
+  // arc(175, 450, arcBass+10, arcBass, 90, 270);
+  
+  // let motion = map(drum,0,100,0,90)
+
+  // var drawMap = map(vocal,0,100,30,90)
+ 
+  // for(var i = 1; i < 30; i+=5){
+  //   let drawcircle = i*10;
+  //   line(drawcircle+10,vocal,drawcircle,vocal);
+  
+  // }
 }
 
 // let bar_spacing = height / 10;
