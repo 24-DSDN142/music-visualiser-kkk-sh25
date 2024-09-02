@@ -12,8 +12,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rect(width/2, height/1.5, 700, 500);
 
   fill(103, 148, 153);// Hi-Hats 
-  triangle(width/6.5, height/1.7, width/20, height/1.6, width/4, height/1.7); // upper triangle
-  triangle(width/6.5, height/1.58, width/20, height/1.6, width/4, height/1.66); // lower triangle
+  let triDrum = map(drum,0,100,100,115);//top
+  let bothat = map(drum,0,100,100,70);//bottom
+  triangle(triDrum,height/1.7, triDrum - width/10, height/1.6, width/4, triDrum+height/2.2); // upper triangle
+  //triangle(width/6.5, height/1.7, width/20, height/1.6, width/4, height/1.7); // upper triangle
+  triangle(triDrum, height/1.58, triDrum - width/10, height/1.6, width/4, bothat+height/2); // lower triangle
+
   strokeWeight(1.5) 
   line(width/6.5, height/1.7,width/6.5,height/1.3);//stand
   line(width/11, height/1.28,width/6.5,height/1.3);//feet1
@@ -21,9 +25,22 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/5, height/1.28,width/6.5,height/1.3);//feet3
 
   //snare
+  fill(148, 85, 53)
   strokeWeight(0)
-  rect(30, 20, 55, 40);
-
+  rect(width/3.2, height/1.37, 100, 57);
+  strokeWeight(1.5)
+  line(width/3.2, height/1.31,width/3.2,height/1.13);//stand
+  line(width/3.2, height/1.13,width/4,height/1.1);//feet1
+  line(width/3.2, height/1.13,width/3,height/1.1);//feet2
+  line(width/3.2, height/1.13,width/2.7,height/1.1);//feet3
+  for(var i = 1; i < 20; i+=5){
+    let drawcircle = i*5;
+    line(drawcircle+width/3.9,height/1.39,drawcircle+width/3.9,height/1.31);
+  
+  }
+  strokeWeight(0)
+  fill(225)
+  ellipse(width/3.2,height/1.43,100,45)//head
 
   // // //square()
   // fill(70)
@@ -76,7 +93,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   // let motion = map(drum,0,100,0,90)
 
   // var drawMap = map(vocal,0,100,30,90)
- 
+
+  //for loops
   // for(var i = 1; i < 30; i+=5){
   //   let drawcircle = i*10;
   //   line(drawcircle+10,vocal,drawcircle,vocal);
