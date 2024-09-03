@@ -58,25 +58,24 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   circle(width/3.8, stick+height/1.85, 10)
 
   //bass drum
+  
   strokeWeight(20)
   stroke('black')
   line(width/2.35,height/1.23,width/2.5,height/1.15)
   line(width/1.75,height/1.23,width/1.65,height/1.15)
+  
   strokeWeight(0)
   fill(205, 92, 8)
   circle(width/2,height/1.41,200,215)//ouside
-  strokeWeight(5)
+  strokeWeight(1)
+  line(width/2.4,height/1.45,width/2.7,height/1.48)
+  
+  strokeWeight(0)
   stroke(120, 116, 116)
   fill(225)
   circle(width/2,height/1.35,200)//inside
 
-  strokeWeight(1)
-  stroke('black')
-  for(var i = 1; i < 20; i+=5){
-    let drawcircle = i*5;
-    line(drawcircle+width/2.4,height/1.39,drawcircle+width/2,snare+height/1.57);
   
-  }
   // // //square()
   // fill(70)
   // circle(100, height-200, 1000)
