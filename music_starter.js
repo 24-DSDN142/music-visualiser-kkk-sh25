@@ -19,6 +19,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   triangle(triDrum, height/1.58, triDrum - width/10, height/1.6, width/4, bothat+height/2); // lower triangle
 
   strokeWeight(1.5) 
+  stroke('black')
   line(width/7, height/1.7,width/6.5,height/1.3);//stand
   line(width/11, height/1.28,width/6.5,height/1.3);//feet1
   line(width/9, height/1.23,width/6.5,height/1.3);//feet2
@@ -58,7 +59,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   circle(width/3.8, stick+height/1.85, 10)
 
   //bass drum
-  
+  let bazz = map(bass,0,100,200,160)
   strokeWeight(20)
   stroke('black')
   line(width/2.35,height/1.23,width/2.5,height/1.15)
@@ -68,6 +69,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   stroke(120, 116, 116)
   fill(205, 92, 8)
   ellipse(width/2,height/1.4,186,215)//ouside
+  
   strokeWeight(2)
   stroke('black')
   line(width/2.4,height/1.45,width/2.6,height/1.48)
@@ -76,12 +78,13 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/2,height/1.45,width/1.85,height/1.67)
   line(width/1.8,height/1.45,width/1.7,height/1.6)
   line(width/1.8,height/1.4,width/1.63,height/1.5)
+
   strokeWeight(0)
   stroke(120, 116, 116)
   fill(189, 91, 17)
-  ellipse(width/2,height/1.35,200,200)//inside
+  ellipse(width/2,height/1.35,bazz+10,200)//inside
   fill(227, 201, 182)
-  ellipse(width/2,height/1.35,188,198)//inside
+  ellipse(width/2,height/1.35,bazz,198)//inside
 
   
   // // //square()
