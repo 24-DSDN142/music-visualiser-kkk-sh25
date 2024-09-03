@@ -65,15 +65,23 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/1.75,height/1.23,width/1.65,height/1.15)
   
   strokeWeight(0)
+  stroke(120, 116, 116)
   fill(205, 92, 8)
-  circle(width/2,height/1.41,200,215)//ouside
-  strokeWeight(1)
-  line(width/2.4,height/1.45,width/2.7,height/1.48)
-  
+  ellipse(width/2,height/1.4,186,215)//ouside
+  strokeWeight(2)
+  stroke('black')
+  line(width/2.4,height/1.45,width/2.6,height/1.48)
+  line(width/2.4,height/1.45,width/2.5,height/1.58)
+  line(width/2,height/1.45,width/2.2,height/1.67)
+  line(width/2,height/1.45,width/1.85,height/1.67)
+  line(width/1.8,height/1.45,width/1.7,height/1.6)
+  line(width/1.8,height/1.4,width/1.63,height/1.5)
   strokeWeight(0)
   stroke(120, 116, 116)
-  fill(225)
-  circle(width/2,height/1.35,200)//inside
+  fill(189, 91, 17)
+  ellipse(width/2,height/1.35,200,200)//inside
+  fill(227, 201, 182)
+  ellipse(width/2,height/1.35,188,198)//inside
 
   
   // // //square()
