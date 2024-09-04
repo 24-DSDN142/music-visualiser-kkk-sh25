@@ -72,7 +72,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
   strokeWeight(2)
   stroke('black')
-  line(width/2.4,height/1.45,width/2.6,height/1.48)
+  line(width/2.4,height/1.45,width/2.63,height/1.48)
   line(width/2.4,height/1.45,width/2.5,height/1.58)
   line(width/2,height/1.45,width/2.2,height/1.67)
   line(width/2,height/1.45,width/1.85,height/1.67)
@@ -95,9 +95,10 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   strokeWeight(0)
   fill(0)
-  rect(fstick+width/3.3,height/1.2,hstick+10,20)
+  //rect(fstick+width/3.3,height/1.2,hstick+10,20)
   circle(fstick+width/3.3,height/1.2,hstick)//stick head
-
+  
+  triangle(width/2,height/2,width/3,height/3,width/4,height/3)
 
   // // //square()
   // fill(70)
