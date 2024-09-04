@@ -1,11 +1,10 @@
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(227, 173, 86)
-  textFont('Verdana'); // please use CSS safe fonts
+  textFont('Courier'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
   text(words, width/3, height/3);
-  
   
 
   //noStroke()
@@ -42,7 +41,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/3.6, height/1.13,width/2.7,height/1.1);//feet3
   for(var i = 1; i < 20; i+=5){
     let drawcircle = i*5;
-    line(drawcircle+width/4.5,height/1.39,drawcircle+width/4.5,snare+height/1.57);
+    line(drawcircle+width/4.5,height/1.4,drawcircle+width/4.5,snare+height/1.59);
   
   }
   
