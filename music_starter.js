@@ -26,7 +26,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/5, height/1.28,width/6.5,height/1.3);//feet3
 
   //snare
-  let snare = map(drum,0,100,100,110)
+  let snare = map(drum,0,100,100,115)
   fill(148, 85, 53)
   strokeWeight(0)
   rect(width/3.6, height/1.37, 100, snare-48);
@@ -49,7 +49,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   fill(225)
   ellipse(width/3.6,height/1.45,snare-5,45)//head
 
-  let stick = map(bass,0,100,100,145)
+  let stick = map(drum,0,100,100,145)
   strokeWeight(3.5)
   line(width/3.8, stick+height/1.85,width/5,stick+height/1.68);//drum stick 1
   
@@ -59,36 +59,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   circle(width/3.8, stick+height/1.85, 10)
 
   //bass drum
-  let bazz = map(bass,0,100,200,160)
+  let bazz = map(drum,0,100,200,160)
   strokeWeight(20)
-  stroke('black')
+  stroke(51, 50, 50)
   line(width/2.35,height/1.23,width/2.5,height/1.15)
-  line(width/1.75,height/1.23,width/1.65,height/1.15)
+
   
   strokeWeight(0)
-  stroke(120, 116, 116)
+  fill(0)
+  ellipse(width/1.87,height/1.35,bazz+20,200)//ouside
+  strokeWeight(20)
+  line(width/1.75,height/1.23,width/1.65,height/1.15)
+  strokeWeight(0)
   fill(205, 92, 8)
-  ellipse(width/2,height/1.4,bazz+10,215)//ouside
-  
+  ellipse(width/1.9,height/1.35,bazz+20,200)//ouside
+
+
   strokeWeight(2)
   stroke('black')
-  line(width/2.4,height/1.45,width/2.63,height/1.48)
-  line(width/2.4,height/1.45,width/2.5,height/1.58)
-  line(width/2,height/1.45,width/2.2,height/1.67)
-  line(width/2,height/1.45,width/1.85,height/1.67)
-  line(width/1.8,height/1.45,width/1.7,height/1.6)
-  line(width/1.8,height/1.4,width/1.63,height/1.5)
+  line(width/1.67,height/1.55,width/2,height/1.55)
+  line(width/1.8,height/1.45,width/1.55,height/1.45 )
+  line(width/1.8,height/1.35,width/1.52,height/1.35)
+  line(width/1.8,height/1.25,width/1.56,height/1.25)
+  line(width/1.8,height/1.20,width/1.65,height/1.20)
+  //line(width/1.8,height/1.4,width/1.63,height/1.5)
 
   strokeWeight(0)
   stroke(120, 116, 116)
-  fill(189, 91, 17)
+  fill(0)
   ellipse(width/2,height/1.35,bazz+10,200)//inside
   fill(227, 201, 182)
-  ellipse(width/2,height/1.35,bazz,198)//inside
+  ellipse(width/2.03,height/1.35,bazz,198)//inside
 
   //bass stick
-  let hstick = map(bass,0,100,20,10)
-  let fstick = map(bass,0,100,100,145)
+  let hstick = map(drum,0,100,25,10)
+  let fstick = map(drum,0,100,100,145)
   strokeWeight(2.5)
   stroke('black')
   line(fstick+width/3.3,height/1.2,width/2,height/1.13)//stick
@@ -96,9 +101,47 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(0)
   fill(0)
   //rect(fstick+width/3.3,height/1.2,hstick+10,20)
-  circle(fstick+width/3.3,height/1.2,hstick)//stick head
+  circle(fstick+width/3.3,height/1.2,hstick+10)//stick head
   
-  triangle(width/2,height/2,width/3,height/3,width/4,height/3)
+  //small snare
+  let msnare = map(bass,0,100,100,80)
+  fill(176, 97, 97)
+  rotate(20)
+  rect(width/1.3,height/2.8,94,msnare-34)
+  strokeWeight(2)
+  for(var i = 1; i < 20; i+=5){
+    //stroke('black')
+    let drawline = i*5;
+    line(drawline + width/1.4,height/3,drawline+width/1.4,height/2.57);
+    }
+  strokeWeight(0)
+  fill(0)
+  ellipse(width/1.3,height/3,msnare+5,50)//shadow
+  fill(225)
+  ellipse(width/1.3,height/3.09,msnare+5,50)
+  
+  rotate(-37)
+  fill(176, 97, 97)
+  rect(width/4.5,height/1.54,94,msnare-34)
+  strokeWeight(2)
+  for(var i = 1; i < 20; i+=5){
+  //stroke('black')
+  let drawline = i*5;
+  line(drawline + width/6,height/1.56,drawline+width/6,height/1.47);
+  }
+  strokeWeight(0)
+  fill(0)
+  ellipse(width/4.5,height/1.59,msnare+5,50)//s
+  fill(225)
+  ellipse(width/4.5,height/1.62,msnare+5,50)
+  
+  
+  
+  
+  
+  
+  
+    
 
   // // //square()
   // fill(70)
