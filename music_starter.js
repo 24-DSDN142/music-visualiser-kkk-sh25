@@ -1,17 +1,21 @@
-
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(227, 173, 86)
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
+  text(words, width/3, height/3);
   
+  
+
   //noStroke()
   strokeWeight(0)
   fill(237, 193, 90)
-  rect(width/2, height/1.5, 700, 500);
-
-  fill(103, 148, 153);// Hi-Hats 
+  rect(width/2, height/1.34, 700, 340);
+  //image(img,width/2,height/2);
+  
+  // Hi-Hats 
+  fill(103, 148, 153);
   let triDrum = map(drum,0,100,100,115);//top
   let bothat = map(drum,0,100,100,70);//bottom
   triangle(triDrum,height/1.7, triDrum - width/10, height/1.6, width/4, triDrum+height/2.2); // upper triangle
@@ -53,7 +57,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(3.5)
   line(width/3.8, stick+height/1.85,width/5,stick+height/1.68);//drum stick 1
   
-  let head = map(bass,0,100,100,115)
+  //let head = map(bass,0,100,100,115)
   strokeWeight(0)
   fill(0)
   circle(width/3.8, stick+height/1.85, 10)
@@ -62,14 +66,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let bazz = map(drum,0,100,200,160)
   strokeWeight(20)
   stroke(51, 50, 50)
-  line(width/2.35,height/1.23,width/2.5,height/1.15)
-
+  line(width/2.18,height/1.23,width/2.3,height/1.15)
+  line(width/1.75,height/1.23,width/1.65,height/1.15)
   
   strokeWeight(0)
   fill(0)
   ellipse(width/1.87,height/1.35,bazz+20,200)//ouside
-  strokeWeight(20)
-  line(width/1.75,height/1.23,width/1.65,height/1.15)
+
+
   strokeWeight(0)
   fill(205, 92, 8)
   ellipse(width/1.9,height/1.35,bazz+20,200)//ouside
@@ -97,43 +101,62 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(2.5)
   stroke('black')
   line(fstick+width/3.3,height/1.2,width/2,height/1.13)//stick
-
+  
   strokeWeight(0)
   fill(0)
   //rect(fstick+width/3.3,height/1.2,hstick+10,20)
   circle(fstick+width/3.3,height/1.2,hstick+10)//stick head
   
   //small snare
-  let msnare = map(bass,0,100,100,80)
+  let msnare = map(drum,0,100,100,80)
   fill(176, 97, 97)
-  rotate(20)
-  rect(width/1.3,height/2.8,94,msnare-34)
+  rotate(19)
+  rect(width/1.28,height/2.65,93,msnare-34)
   strokeWeight(2)
   for(var i = 1; i < 20; i+=5){
     //stroke('black')
     let drawline = i*5;
-    line(drawline + width/1.4,height/3,drawline+width/1.4,height/2.57);
+    line(drawline + width/1.38,height/2.9,drawline+width/1.38,height/2.46);
     }
   strokeWeight(0)
   fill(0)
-  ellipse(width/1.3,height/3,msnare+5,50)//shadow
+  ellipse(width/1.28,height/2.9,msnare+7,50)//shadow
   fill(225)
-  ellipse(width/1.3,height/3.09,msnare+5,50)
+  ellipse(width/1.28,height/2.97,msnare+7,50)
   
-  rotate(-37)
+  rotate(-36)
   fill(176, 97, 97)
-  rect(width/4.5,height/1.54,94,msnare-34)
+  rect(width/4.5,height/1.5,93,msnare-34)
   strokeWeight(2)
   for(var i = 1; i < 20; i+=5){
   //stroke('black')
   let drawline = i*5;
-  line(drawline + width/6,height/1.56,drawline+width/6,height/1.47);
+  line(drawline + width/6,height/1.56,drawline+width/6,height/1.44);
   }
   strokeWeight(0)
   fill(0)
-  ellipse(width/4.5,height/1.59,msnare+5,50)//s
+  ellipse(width/4.5,height/1.57,msnare+5,50)//s
   fill(225)
-  ellipse(width/4.5,height/1.62,msnare+5,50)
+  ellipse(width/4.5,height/1.59,msnare+5,50)
+  strokeWeight(2.5)
+  line(width/3.3,stick+height/1.87,width/4.3,stick+height/2.1)
+  
+  fill(0)
+  strokeWeight(0)
+  circle(width/4.3,stick+height/2.1,10)
+  
+  //cymbal
+  let cymbal = map(drum,0,100,90,120)
+  let cymbal1 = map(drum,0,100,110,130)
+  strokeWeight(0)
+  fill(106, 156, 137)
+  triangle(width/1.7,cymbal1+height/1.3,width/3.2,cymbal+height/1.5,width/2.2,cymbal+height/1.5)
+  strokeWeight(1.5)
+  line(width/2.2,height/1.25,width/2.5,height/0.98)//stand
+  line(width/2.5,height/0.98,width/3,height/0.97)
+  line(width/2.5,height/0.98,width/2.5,height/0.93)
+  line(width/2.5,height/0.98,width/2.2,height/0.93)
+  
   
   
   
