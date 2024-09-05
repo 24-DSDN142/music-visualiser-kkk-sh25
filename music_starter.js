@@ -4,7 +4,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textFont('Courier'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
-  text(words, width/3, height/3);
+  text(words, width/3.5, height/3);
   
 
   //noStroke()
