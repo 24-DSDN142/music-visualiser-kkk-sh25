@@ -1,12 +1,16 @@
+let myFont;
+function preload(){
+  myfont = loadFont('Dokdo.ttf');
+}
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(227, 173, 86)
-  textFont('Courier'); // please use CSS safe fonts
+  textFont(myfont); // please use CSS safe fonts
   rectMode(CENTER)
-  textSize(24);
-  text(words, width/3.5, height/3);
+  textSize(60);
+  text(words, width/7.5, height/3.6,width/5,height/2);
   
-
+  
   //noStroke()
   strokeWeight(0)
   fill(237, 193, 90)
@@ -20,7 +24,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   triangle(triDrum,height/1.7, triDrum - width/10, height/1.6, width/4, triDrum+height/2.2); // upper triangle
   //triangle(width/6.5, height/1.7, width/20, height/1.6, width/4, height/1.7); // upper triangle
   triangle(triDrum, height/1.58, triDrum - width/10, height/1.6, width/4, bothat+height/2); // lower triangle
-
+  
   strokeWeight(1.5) 
   stroke('black')
   line(width/7, height/1.7,width/6.5,height/1.3);//stand

@@ -57,7 +57,7 @@ function setup() {
   angleMode(DEGREES);
 
   // create text inputs
-  textInput = createInput('words...');
+  textInput = createInput('TOKYO INN by HYUKOH (혁오)');
   textInput.parent('wordsContainer');
 
   // create sliders
