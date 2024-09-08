@@ -1,11 +1,11 @@
 let myFont;
 function preload(){
-  myfont = loadFont('Dokdo.ttf');
+  myFont = loadFont('Dokdo-Regular.ttf');
 }
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(227, 173, 86)
-  textFont(myfont); // please use CSS safe fonts
+  textFont(myFont); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(60);
   text(words, width/7.5, height/3.6,width/5,height/2);
