@@ -43,6 +43,7 @@ function songLoadedSoFar(soFar) {
 function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
+  //myfont = loadFont('East_Sea_Dokdo/EastSeaDokdo-Regular.ttf')
 }
 
 let volumes = [];

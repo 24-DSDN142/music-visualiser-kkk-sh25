@@ -1,15 +1,14 @@
-let myFont;
-function preload(){
-  myFont = loadFont('Dokdo-Regular.ttf');
-}
+//let myFont;
+let image1 = [];
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(227, 173, 86)
-  textFont(myFont); // please use CSS safe fonts
-  rectMode(CENTER)
+  background(227, 173, 86);
+  textFont('Arial'); // please use CSS safe fonts
+  rectMode(CENTER);
   textSize(60);
   text(words, width/7.5, height/3.6,width/5,height/2);
-  
+
   
   //noStroke()
   strokeWeight(0)
@@ -160,6 +159,16 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/2.5,height/0.98,width/2.5,height/0.93)
   line(width/2.5,height/0.98,width/2.2,height/0.93)
   
+  if (counter == 0) {
+    image1.push(loadImage('ss.png'));
+  }
+  if (image1[0]) {
+    let img = image1[0];
+    let imgWidth = 500;
+    let imgHeight = 500;
+    image(img,50,0,imgHeight, imgHeight)
+  }
+}
   
   
   
@@ -227,7 +236,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //   line(drawcircle+10,vocal,drawcircle,vocal);
   
   // }
-}
+
 // function draw_line(words, vocal, drum, bass, other, counter){
 //  strokeWeight(45)
 //  line(50, height-180,150,height/1.5);
