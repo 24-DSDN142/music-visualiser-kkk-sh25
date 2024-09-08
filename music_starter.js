@@ -9,14 +9,25 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textSize(60);
   text(words, width/7.5, height/3.6,width/5,height/2);
 
-  
-  //noStroke()
-  strokeWeight(0)
-  fill(237, 193, 90)
-  rect(width/2, height/1.34, 700, 340);
-  //image(img,width/2,height/2);
+  if (counter == 0) {
+    image1.push(loadImage('papertexture.jpg'));
+  }
+  if (image1[0]) {
+    tint(255, 127);
+    let img = image1[0];
+    let imgWidth = 700;
+    let imgHeight = 500;
+    image(img,0,height/2,imgWidth, imgHeight)
+  }
+
+  // //noStroke()
+  // strokeWeight(0)
+  // fill(237, 193, 90)
+  // rect(width/2, height/1.34, 700, 340);
+  // //image(img,width/2,height/2);
   
   // Hi-Hats 
+  strokeWeight(0)
   fill(103, 148, 153);
   let triDrum = map(drum,0,100,100,115);//top
   let bothat = map(drum,0,100,100,70);//bottom
@@ -159,15 +170,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/2.5,height/0.98,width/2.5,height/0.93)
   line(width/2.5,height/0.98,width/2.2,height/0.93)
   
-  if (counter == 0) {
-    image1.push(loadImage('ss.png'));
-  }
-  if (image1[0]) {
-    let img = image1[0];
-    let imgWidth = 500;
-    let imgHeight = 500;
-    image(img,50,0,imgHeight, imgHeight)
-  }
+
 }
   
   
