@@ -1,16 +1,20 @@
 //let myFont;
 let bck = [];
 let mic = [];
+let image2 = []
+var xMOVE = 0;
 //let font = []
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
  // please use CSS safe fonts
+ 
   rectMode(CENTER);
   console.log(counter)
   if (counter == 0) {
     bck.push(loadImage('backg1.jpg'));
     mic.push(loadImage('mic3.png'));
+    image2.push(loadImage('hyukoh.png'))
     //font.push(loadFont('EastSeaDokdo.ttf'))
   }
   
@@ -20,60 +24,69 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   //noStroke()
   strokeWeight(0)
-  fill(237, 193, 90)//yellow
+  fill(181, 137, 54)//yellow
   rect(width/2, height/1.3, 650, 340);
-  fill(56, 105, 138)//70, 126, 163)//blue
+  fill(26, 72, 112)//blue
   rect(width/4.7, height/3.7, 250, 415);
-  fill(236,90,90)//red
+  fill(52, 84, 44)//green
   rect(width/1.45, height/7.3, 380, 200);
-  fill(70, 145, 88)//green
+  fill(26, 72, 112)//
   rect(width/1.45, height/2.45, 380, 200);
   // // //image(img,width/2,height/2);
   if (bck[0]) {
-    tint(255, 80);
-    let img = bck[0];
-    image(img,24,8.9, 250, 415)
     tint(255, 50);
-    image(img,293, height/3.53, 380, 200)
+    let img = bck[0];
+    image(img,24,8.9, width, height)
+    // tint(255, 50);
+    // image(img,293, height/3.53, 380, 200)
+    // tint(255, 80);
+    // image(img,width/2.39, 10, 380, 200)
   }
 
 
   //fonts
   strokeWeight(0)
-  //textFont('Black Han Sans');
-  fill(62, 117, 75)
-  textSize(45);
+  textFont('Black Han Sans');
+  fill(43, 40, 41)
+  textSize(25);
   textStyle(BOLDITALIC);
-  rectMode(CENTER);
-  text(words, width/8.5, height/5,width/7,height/3);
+  textAlign(CENTER);
+  text(words, width/1.3, height/3.3,width/4,height/2);
   
   // microphone
   if (mic[1]) {
     tint(220);
     //strokeWeight(2)
     let img1 = mic[1];
-    let microphone = map(vocal,0,100,100, 140)
-    image(img1,width-570,240,microphone+100, microphone+100)
+    let microphone = map(vocal,0,100,100, 130)
+    image(img1,width-730,220,microphone+100, microphone+100)
   }
-  // Hi-Hats 
-  let h_width = width + 130;
+   //shadow
   strokeWeight(0)
-  fill(209, 155, 84);
+  fill(94, 93, 93)
+  ellipse(width/7,height/1.28,100,15)
+  ellipse(width/4,height/1.11,100,10)
+  ellipse(width/2.08,height/1.06,155,10)
+  // Hi-Hats 
+  let h_width = width - 50;
+  strokeWeight(0)
+  fill(191, 121, 8);
   let triDrum = map(drum,0,100,100,115);//top
   let bothat = map(drum,0,100,100,70);//bottom
-  triangle(triDrum+10,height/1.7, triDrum - h_width/12.5, height/1.6, h_width/4, triDrum+height/2.2); // upper triangle
+  triangle(triDrum-15,height/1.7, triDrum - h_width/9, height/1.6, h_width/3.5, triDrum+height/2.2); // upper triangle
   //triangle(width/6.5, height/1.7, width/20, height/1.6, width/4, height/1.7); // upper triangle
-  triangle(triDrum+10, height/1.58, triDrum - h_width/12.5, height/1.6, h_width/4, bothat+height/2); // lower triangle
-  
+  triangle(triDrum-15, height/1.57, triDrum - h_width/9, height/1.6, h_width/3.5, bothat+height/2); // lower triangle
+
   strokeWeight(1.5) 
   stroke('black')
   line(h_width/7, height/1.7,h_width/6.5,height/1.3);//stand
   line(h_width/11, height/1.28,h_width/6.5,height/1.3);//feet1
   line(h_width/9, height/1.23,h_width/6.5,height/1.3);//feet2
   line(h_width/5, height/1.28,h_width/6.5,height/1.3);//feet3
+
   
   //snare
-  let bs_width = width + 100
+  let bs_width = width - 110
   let snare = map(drum,0,100,100,115)
   fill(179, 79, 79)
   strokeWeight(0)
@@ -86,7 +99,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(bs_width/3.6, height/1.13,bs_width/2.7,height/1.1);//feet3
   for(var i = 1; i < 20; i+=5){
     let drawcircle = i*5;
-    line(drawcircle+bs_width/4.5,height/1.4,drawcircle+bs_width/4.5,snare+height/1.59);
+    line(drawcircle+bs_width/4.8,height/1.4,drawcircle+bs_width/4.8,snare+height/1.59);
   
   }
   
@@ -107,56 +120,95 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   circle(bs_width/3.8, stick+height/1.85, 10)
 
   //bass drum
-  let b_width = width + 100
+  let b_width = width - 50
+  let b_height = height + 50
   let bazz = map(drum,0,100,200,160)
   strokeWeight(20)
   stroke(51, 50, 50)
-  line(b_width/2.18,height/1.23,b_width/2.3,height/1.15)
-  line(b_width/1.75,height/1.23,b_width/1.65,height/1.15)
+  line(b_width/2.18,b_height/1.23,b_width/2.3,b_height/1.14)
+  line(b_width/1.75,b_height/1.23,b_width/1.65,b_height/1.14)
   
   strokeWeight(0)
   fill(0)
-  ellipse(b_width/1.87,height/1.35,bazz+20,200)//ouside
+  ellipse(b_width/1.87,b_height/1.35,bazz+20,200)//ouside
 
 
   strokeWeight(0)
   fill(205, 92, 8)
-  ellipse(b_width/1.9,height/1.35,bazz+20,200)//ouside
+  ellipse(b_width/1.9,b_height/1.35,bazz+20,200)//ouside
 
-
+  let b_line = map(drum,0,100,100,130)
   strokeWeight(2)
   stroke('black')
-  line(b_width/1.67,height/1.55,b_width/2,height/1.55)
-  line(b_width/1.8,height/1.45,b_width/1.55,height/1.45 )
-  line(b_width/1.8,height/1.35,b_width/1.52,height/1.35)
-  line(b_width/1.8,height/1.25,b_width/1.56,height/1.25)
-  line(b_width/1.8,height/1.20,b_width/1.65,height/1.20)
+  line(b_line+b_width/2.35,b_height/1.55,b_width/2,b_height/1.55)
+  line(b_width/1.8,b_height/1.45,b_line + b_width/2.1,b_height/1.45 )
+  line(b_width/1.8,b_height/1.35,b_line +b_width/2.09,b_height/1.35)
+  line(b_width/1.8,b_height/1.25,b_line +b_width/2.11,b_height/1.25)
+  line(b_width/1.8,b_height/1.20,b_line +b_width/2.3,b_height/1.20)
   //line(width/1.8,height/1.4,width/1.63,height/1.5)
 
   strokeWeight(0)
   stroke(120, 116, 116)
   fill(0)
-  ellipse(b_width/2,height/1.35,bazz+10,200)//inside
+  ellipse(b_width/2,b_height/1.35,bazz+10,200)//inside
   fill(227, 201, 182)
-  ellipse(b_width/2.03,height/1.35,bazz,198)//inside
+  ellipse(b_width/2.04,b_height/1.35,bazz,200)//inside
 
   //bass stick
   let hstick = map(drum,0,100,25,10)
   let fstick = map(drum,0,100,100,145)
   strokeWeight(2.5)
   stroke('black')
-  line(fstick+b_width/3.3,height/1.2,b_width/2,height/1.13)//stick
+  line(fstick+b_width/3.3,b_height/1.2,b_width/2,b_height/1.13)//stick
   
   strokeWeight(0)
   fill(0)
   //rect(fstick+width/3.3,height/1.2,hstick+10,20)
-  circle(fstick+b_width/3.3,height/1.2,hstick+10)//stick head
+  circle(fstick+b_width/3.3,b_height/1.2,hstick+10)//stick head
   
+  //MP3 DRAWING
+  fill(59, 55, 56)
+  rect(width/1.45,height/4.1,width/1.84,30)
+  //MP3 pic
+  if (image2[2]) {
+    //tint(220);
+    //strokeWeight(2)
+    let img2 = image2[2];
+    image(img2,width/2.27,height/28,120,120)
+  }
+  //rect(width/1.45,height/41,width/1.84,20)
+  strokeWeight(1)
+  stroke(225)
+  line(width/2.2,height/4.7,width/1.09,height/4.7)
+  //pause,play,skip button
+  strokeWeight(5)
+  line(width/1.5,height/4.27,width/1.5,height/3.95)
+  line(width/1.48,height/4.27,width/1.48,height/3.95)
+  strokeWeight(0)
+  fill(225)
+  triangle(width/1.7,height/4.27,width/1.7,height/3.95,width/1.8,height/4.1)
+  triangle(width/1.32,height/4.27,width/1.32,height/3.95,width/1.26,height/4.1)
+  textSize(10)
+  text('0:21',width/2.2,height/4.9)
+  text('3:21',width/1.1,height/4.9)
+  textSize(15)
+  //text('Now Playing',width/1.4,height/10)
+
+
+  strokeWeight(0)
+  fill(225)
+  circle(width/2.2+xMOVE,height/4.7,5,5)
+  fill(0)
+  xMOVE = xMOVE + 0.02;
+  if (xMOVE >160){
+    xMOVE = 0;
+  }
+
   //small snare
-  let s_width = width+50
-  let s_height = height - 30
-  let s_height2 = height + 15
-  let s_width2 = width+110
+  let s_width = width-40
+  let s_height = height + 110
+  let s_height2 = height +20
+  let s_width2 = width-250
   let msnare = map(drum,0,100,100,80)
   fill(176, 97, 97)
   rotate(19)
@@ -164,8 +216,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(2)
   for(var i = 1; i < 20; i+=5){
     //stroke('black')
+    stroke(0)
     let drawline = i*5;
-    line(drawline + s_width/1.38,s_height/2.9,drawline+s_width/1.38,s_height/2.46);
+    line(drawline + s_width/1.39,s_height/2.9,drawline+s_width/1.39,msnare+s_height/3.25);
     }
   strokeWeight(0)
   fill(0)
@@ -180,7 +233,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   for(var i = 1; i < 20; i+=5){
   //stroke('black')
   let drawline = i*5;
-  line(drawline + s_width2/6,s_height2/1.56,drawline+s_width2/6,s_height2/1.44);
+  line(drawline + s_width2/7.5,s_height2/1.56,drawline+s_width2/7.5,msnare+s_height2/1.7);
   }
   strokeWeight(0)
   fill(0)
@@ -195,19 +248,21 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   circle(s_width2/4.3,stick+s_height2/2.1,10)
   
   //cymbal
-  let c_width = width+100
+  let c_width = width-40
+  let c_height = height+40
   let cymbal = map(drum,0,100,90,120)
   let cymbal1 = map(drum,0,100,110,130)
   strokeWeight(0)
-  fill(209, 155, 84)
-  triangle(c_width/1.7,cymbal1+height/1.3,c_width/3.1,cymbal+height/1.5,c_width/2.2,cymbal+height/1.45)
+  fill(191, 121, 8)
+  triangle(c_width/1.7,cymbal1+c_height/1.3,c_width/3.1,cymbal+c_height/1.5,c_width/2.2,cymbal+c_height/1.45)
   strokeWeight(1.5)
-  line(c_width/2.2,height/1.23,c_width/2.5,height/0.93)//stand
-  line(c_width/2.5,height/0.93,c_width/3,height/0.91)
-  line(c_width/2.5,height/0.93,c_width/2.5,height/0.88)
-  line(c_width/2.5,height/0.93,c_width/2.2,height/0.91)
+  line(c_width/2.2,c_height/1.23,c_width/2.5,c_height/0.98)//stand
+  line(c_width/2.5,c_height/0.98,c_width/3,c_height/0.95)
+  line(c_width/2.5,c_height/0.98,c_width/2.5,c_height/0.94)
+  line(c_width/2.5,c_height/0.98,c_width/2.2,c_height/0.94)
   
- 
+  // music record
+
 }
   
   
