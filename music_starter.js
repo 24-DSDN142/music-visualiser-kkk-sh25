@@ -5,8 +5,7 @@ let image2 = []
 let plants = []
 let lineY = 303
 var xMOVE = 0;
-//let angle = 0;
-
+let angle = -100;
 //let font = []
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -14,7 +13,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  // please use CSS safe fonts
  
   rectMode(CENTER);
-  //console.log(counter)
+  console.log(counter)
   if (counter == 0) {
     bck.push(loadImage('backg1.jpg'));
     mic.push(loadImage('mic3.png'));
@@ -303,6 +302,9 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
    // microphone
   strokeWeight(0)
+  let mic1 = map(vocal,0,100,90,100)
+  fill(158, 129, 73)
+  circle(width/1.15,height/1.5,mic1)
   fill(82, 81, 81)
   let voice = map(vocal,0,100,55,65)
   rect(width/1.15,height/1.5,35,voice,10)
@@ -317,6 +319,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     line(width/1.07-voice,height/1.52+lines,width/1.24+voice,height/1.52+lines)
     line(width/1.172+lines2,height/1.575,width/1.172+lines2,height/1.75+voice)
   }
+ 
   //stand
   strokeWeight(1.5)
   stroke(0)
@@ -324,16 +327,14 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/1.09,height/1.08,width/1.148,height/1.1)
   line(width/1.2,height/1.08,width/1.148,height/1.1)
   line(width/1.15,height/1.07,width/1.148,height/1.1)
-  
 
-  
   //small snare
   let s_width = width-40
   let s_height = height + 110
   let s_height2 = height +20
   let s_width2 = width-250
   let msnare = map(drum,0,100,100,80)
-  //push();
+  push();
   fill(176, 97, 97)
   rotate(19)
   strokeWeight(0)
@@ -385,19 +386,57 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(c_width/2.5,c_height/0.98,c_width/3,c_height/0.95)
   line(c_width/2.5,c_height/0.98,c_width/2.5,c_height/0.94)
   line(c_width/2.5,c_height/0.98,c_width/2.2,c_height/0.94)
-  //pop();
-  
-  //disc
-  
-  fill(0)
-  arc(width/1.38,110,220,200,270,90)
-  
-//   push();
-//   angleMode(DEGREES);
-//   translate(width/1.38,20)
-//   rotate(angle)
-//   strokeWeight(2)
-//   line(10,10,20,10)
-//   pop();
-// }
+  pop();
+    //disc
+    strokeWeight(0)
+    let disc = map(other,0,100,195,210)
+    let disc2 = map(other,0,100,25,20)
+    fill(33, 32, 32)
+    arc(width/1.38,110,disc,disc,270,90)
+    
+    fill(227, 201, 182)
+    arc(width/1.38,110,disc2+20,disc2+20,270,90)
+    fill(33, 32, 32)
+    arc(width/1.38,110,disc2,disc2,270,90)
+    push();
+    angleMode(DEGREES);
+    angle = angle + 1
+    translate(width/1.38,110)
+    rotate(angle)
+    strokeWeight(2)
+    stroke(227, 201, 182)
+    noFill()
+    curve(20, 0, 6, 90, 80, 30, 80, -200);
+    curve(20, 0, 6, 70, 70, 20, 80, -190);
+    curve(20, 10, 6, 50, 50, 20, 80, -100);
+
+    if (angle >8){
+      angle = -100
+    }
+    pop();
+
+    push();
+    let rec = map(other,0,100,25,35)
+    rotate(50)
+    strokeWeight(0)
+    fill(225)
+    rect(width/1.6,-410,10,rec)
+    strokeWeight(2)
+    stroke(0)
+    line(width/1.6,-430+rec,width-260,-480)
+    pop();
+    fill(0)
+    circle(width/1.08,30,20)
+    
+    for(var i = 1; i < 6; i+=2){
+      fill(74, 53, 53)
+      let dots = i * 2
+      let dot = map(vocal,0,100,15,25)
+      circle(width/1.13,height/4.2,dot)
+      circle(width/1.08,height/4.2,dot)
+    }
+    
+    
 }
+
+ 
