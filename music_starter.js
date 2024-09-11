@@ -3,8 +3,10 @@ let bck = [];
 let mic = [];
 let image2 = []
 let plants = []
-let lineY = 318
+let lineY = 303
 var xMOVE = 0;
+//let angle = 0;
+
 //let font = []
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
@@ -12,7 +14,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
  // please use CSS safe fonts
  
   rectMode(CENTER);
-  console.log(counter)
+  //console.log(counter)
   if (counter == 0) {
     bck.push(loadImage('backg1.jpg'));
     mic.push(loadImage('mic3.png'));
@@ -29,14 +31,18 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(0)
   fill(181, 137, 54)//yellow
   rect(width/2, height/1.3, 650, 340);
-  fill(145, 74, 116)//pink
+  fill(26, 72, 112)//blue
   rect(width/4.7, height/6, 250, 250);
-  fill(145, 74, 116)//pink
+  fill(52, 84, 44)//greenleft
   rect(width/4.7, height/2.3, 250, 150);
   fill(52, 84, 44)//green
-  rect(width/1.45, height/7.3, 380, 200);
+  rect(width/1.78, height/7.3, 200, 200);
   fill(26, 72, 112)//blue
   rect(width/1.45, height/2.55, 380, 170);
+  fill(181, 137, 54)//yellow
+  rect(width/1.18, height/7.3, 170, 200);
+  // fill(98, 114, 158)
+  // quad(width/1.04, height/2.01, width/2.38, height/2.01, width/2.6, height/1.9, width/1.1, height/1.9)
 
 
  //image(img,width/2,height/2);
@@ -54,17 +60,40 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     tint(255,200);
     let plant = plants[3];
     //let dance = map(other,0,100,20,40)
-    image(plant,310,height/4.4, width/2,height/3)
+    image(plant,300,height/4.4, width/2,height/3)
+  }
+  
+  //bulletin
+  //strokeWeight(2)
+  //stroke(43, 43, 43)
+  fill(249, 219, 186)
+  //circle(150,30,20)
+  for(var i = 1; i <10; i+=2){
+    let dots = i * 23
+    circle(33+dots,30,20)
+  }
+  for(var i = 1; i <10; i+=2){
+    let d_lines = i * 23
+    strokeWeight(10)
+    stroke(249, 219, 186)
+    line(33+d_lines,10,33+d_lines,20)
+  }
+  
+  strokeWeight(2)
+  for(var i = 1; i <10; i+=2){
+    let bl_line = i * 22;
+    stroke(43, 43, 43)
+    line(35,bl_line+35,width/2.7,35+bl_line)
   }
 
-  //fonts
+  //LYRICS
   strokeWeight(0)
   textFont('Black Han Sans');
-  fill(43, 40, 41)
-  textSize(30);
+  fill(0)
+  textSize(35);
   textStyle(BOLDITALIC);
   textAlign(CENTER);
-  text(words, width/5, height/3.4,width/4,height/2);
+  text(words, width/5, height/3,width/4,height/2);
   
   // // microphone
   // if (mic[1]) {
@@ -90,28 +119,48 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let anthena = map(vocal,0,100,15,0)
   fill(74, 53, 53)//
   rect(width/4.7, height/2.3, 200, 120,10);
+  fill(84, 61, 61)//
+  arc(width/4.7, height/2.77, 192, 20,0,180)
 
-  fill(0)
+  
+  fill(23, 23, 23)
   circle(width/7, height/2.3, speaker+70)//speaker
+  fill(227, 201, 182)
+  circle(width/7, height/2.3,speaker+50)
+  fill(23, 23, 23)
+  circle(width/7, height/2.3,speaker+30)
+  fill(0)
   arc(width/8.5, height/2.75, 20, 15,180,0)
   rect(width/3.7, height/2.5, 95, 20);
+  arc(width/8.5, height/1.94, 30, 15,180,0)//feet
+  arc(width/3.3, height/1.94, 30, 15,180,0)//feet
+
     //anthena
-  strokeWeight(2)
-  line(width/8.5, height/2.77, width/4.5, height/3+anthena)
+  strokeWeight(0)
   circle(width/4.5, anthena+height/3, 5)
-  for (var i = 1; i<10; i +=2){
-    let s_line = i*2
-    line(width/7,height/2,width/2,height/2.3)
-  }
+  //let s = map(bass,0,100,0,10)
+  // for (var i = 1; i<12; i +=2){
+  //   let s_line = i*3
+  //   stroke(225)
+  //   strokeWeight(0.5)
+  //   line(width/10.15-s,height/2.4+s_line,width/5.35+s,height/2.4+s_line)
+  // }
+  strokeWeight(2)
+  let l = map(bass,0,100,0,100)
+  stroke(0)
+  line(width/8.5, height/2.77, width/4.5, height/3+anthena)
+  stroke(204, 94, 108)
+  line(width/4.9+l,height/2.57,width/4.9+l, height/2.445)
+
+  
+  
   strokeWeight(0)
   fill(112, 93, 93)
-  circle(width/3.2, height/2.2, 25)//button
+  circle(width/3.3, height/2.2, 25)//button
   circle(width/4, height/2.2, 25)//butoon
-
-
-
-
-
+  fill(0)
+  circle(width/4, height/2.2, 10)//butoon
+  circle(width/3.3, height/2.2, 10)//button
 
 
   // Hi-Hats 
@@ -155,7 +204,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   fill('black')
   ellipse(bs_width/3.6,height/1.43,snare-5,45)//shadow
 
-  fill(225)
+  fill(227, 201, 182)
   ellipse(bs_width/3.6,height/1.45,snare-5,45)//head
 
   let stick = map(drum,0,100,100,145)
@@ -217,46 +266,49 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
   //MP3 DRAWING
   fill(59, 55, 56)
-  rect(width/1.45,height/4.1,width/1.84,30)
+  rect(width/1.78,height/4.1,200,30)
   //MP3 pic
   if (image2[2]) {
     //tint(220);
     //strokeWeight(2)
     let img2 = image2[2];
-    image(img2,width/2.27,height/28,120,120)
+    image(img2,width/2.12,24,125,125)
   }
-  //rect(width/1.45,height/41,width/1.84,20)
   strokeWeight(1)
   stroke(225)
-  line(width/2.2,height/4.7,width/1.09,height/4.7)
+  line(width/2.3,height/4.7,width/1.46,height/4.7)
   //pause,play,skip button
   strokeWeight(5)
-  line(width/1.5,height/4.27,width/1.5,height/3.95)
-  line(width/1.48,height/4.27,width/1.48,height/3.95)
+  line(width/1.8,height/4.27,width/1.8,height/3.95)
+  line(width/1.75,height/4.27,width/1.75,height/3.95)
   strokeWeight(0)
   fill(225)
-  triangle(width/1.7,height/4.27,width/1.7,height/3.95,width/1.8,height/4.1)
-  triangle(width/1.32,height/4.27,width/1.32,height/3.95,width/1.26,height/4.1)
+  triangle(width/2.05,height/4.27,width/2.05,height/3.95,width/2.18,height/4.1)
+  triangle(width/1.57,height/4.27,width/1.57,height/3.95,width/1.5,height/4.1)
   textSize(10)
-  text('0:21',width/2.2,height/4.9)
-  text('3:21',width/1.1,height/4.9)
+  text('0:21',width/2.25,height/4.9)
+  text('3:21',width/1.48,height/4.9)
   textSize(15)
   //text('Now Playing',width/1.4,height/10)
 
-
+  
   strokeWeight(2.5)
   fill(225)
   line(lineY,height/4.7,lineY+xMOVE,height/4.7)
   fill(0)
   xMOVE = xMOVE + 0.027;
-  if (xMOVE >160){
+  if (xMOVE >175){
     xMOVE = 0;
   }
+
    // microphone
   strokeWeight(0)
   fill(82, 81, 81)
   let voice = map(vocal,0,100,55,65)
   rect(width/1.15,height/1.5,35,voice,10)
+  fill(59, 59, 59)
+  ellipse(width/1.15, height/1.57, 30, 10)
+  ellipse(width/1.15, height/1.44, 30, 10)
   for(var i = 1; i < 8;i+=2){
     let lines = i*3.5;
     let lines2 = i*3;
@@ -272,13 +324,16 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(width/1.09,height/1.08,width/1.148,height/1.1)
   line(width/1.2,height/1.08,width/1.148,height/1.1)
   line(width/1.15,height/1.07,width/1.148,height/1.1)
+  
 
+  
   //small snare
   let s_width = width-40
   let s_height = height + 110
   let s_height2 = height +20
   let s_width2 = width-250
   let msnare = map(drum,0,100,100,80)
+  //push();
   fill(176, 97, 97)
   rotate(19)
   strokeWeight(0)
@@ -293,7 +348,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(0)
   fill(0)
   ellipse(s_width/1.28,s_height/2.9,msnare+7,50)//shadow
-  fill(225)
+  fill(227, 201, 182)
   ellipse(s_width/1.28,s_height/2.97,msnare+7,50)
   //snare 2
   rotate(-36)
@@ -308,7 +363,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   strokeWeight(0)
   fill(0)
   ellipse(s_width2/4.5,s_height2/1.57,msnare+5,50)//s
-  fill(225)
+  fill(227, 201, 182)
   ellipse(s_width2/4.5,s_height2/1.59,msnare+5,50)
   strokeWeight(2.5)
   line(s_width2/3.3,stick+s_height2/1.87,s_width2/4.3,stick+s_height2/2.1)
@@ -330,115 +385,19 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(c_width/2.5,c_height/0.98,c_width/3,c_height/0.95)
   line(c_width/2.5,c_height/0.98,c_width/2.5,c_height/0.94)
   line(c_width/2.5,c_height/0.98,c_width/2.2,c_height/0.94)
+  //pop();
   
-
-
-}
+  //disc
   
+  fill(0)
+  arc(width/1.38,110,220,200,270,90)
   
-  
-  
-  
-  
-  
-    
-
-  // // //square()
-  // fill(70)
-  // circle(100, height-200, 1000)
-  // fill(70)
-  // arc(0, height, 1350, 1350, 270, 0);
-
-  // fill(0)
-  // arc(0, height, 900, 900, 270, 0);
-  
-  // fill(0)
-  // rect(200, 80, 280, 130);
-  
-
-  // strokeWeight(2)
-  // fill(70)
-  // ellipse(width/2,height/2,650)//disk
-
-  // fill(225)
-  // ellipse(width/2,height/2,250)//inside disk
-
-  // fill(225)
-  // strokeWeight(5)
-  // ellipse(width/2,height/2,20)//inside disk
-
-
-  // strokeWeight(45)
-  // line(50, height-180,150,height/1.5);
-  // line(50, height-180,150,height-40);
-  // line(150, height-290,270,height-130);
-
-      // strokeWeight(0)
-      // fill(0)
-      // // arc(150, height-80, 160, 140, 230, 60);
-      // circle(160, height-100, 135)
-
-  // let arcBass = map(bass,0,100,100,115);
-  // strokeWeight(10);
-  // line(175, height/3,350,height/3);
-  // line(350, 500,350,height/3);
-  // line(175, 500,175,height/3);
-  
-
-  // fill(0)
-  // //left
-  // arc(350, 450, arcBass+10, arcBass, 270, 90);
-  // //right
-  // arc(175, 450, arcBass+10, arcBass, 90, 270);
-  
-  // let motion = map(drum,0,100,0,90)
-
-  // var drawMap = map(vocal,0,100,30,90)
-
-  //for loops
-  // for(var i = 1; i < 30; i+=5){
-  //   let drawcircle = i*10;
-  //   line(drawcircle+10,vocal,drawcircle,vocal);
-  
-  // }
-
-// function draw_line(words, vocal, drum, bass, other, counter){
-//  strokeWeight(45)
-//  line(50, height-180,150,height/1.5);
-//  line(50, height-180,150,height-40);
-//  line(150, height-290,270,height-130);
+//   push();
+//   angleMode(DEGREES);
+//   translate(width/1.38,20)
+//   rotate(angle)
+//   strokeWeight(2)
+//   line(10,10,20,10)
+//   pop();
 // }
-// let bar_spacing = height / 10;
-//    let bar_height = width / 12;
-//    let bar_pos_x = width / 2;
- 
-
-//    // vocal bar is red
-//    fill(200, 0, 0);
-//    rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
-//    fill(0);
-//    text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
- 
-//    // drum bar is green
-//    fill(0, 200, 0);
-//    rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
-//    fill(0);
-//    text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
-//    // bass bar is blue
-//    fill(50, 50, 240);
-//    rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
-//    fill(0);
-//    text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
- 
-//    // other bar is white
-//    fill(200, 200, 200);
-//    rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
-//    fill(0);
-//    text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-//    fill(255, 255, 0);
- 
-//    // display "words"
-//    textAlign(CENTER);
-//    textSize(vocal);
-//    text(words, width/2, height/3);
+}
