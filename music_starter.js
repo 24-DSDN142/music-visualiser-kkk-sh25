@@ -2,6 +2,8 @@
 let bck = [];
 let mic = [];
 let image2 = []
+let plants = []
+let lineY = 318
 var xMOVE = 0;
 //let font = []
 
@@ -15,6 +17,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     bck.push(loadImage('backg1.jpg'));
     mic.push(loadImage('mic3.png'));
     image2.push(loadImage('hyukoh.png'))
+    plants.push(loadImage('plants.GIF'))
     //font.push(loadFont('EastSeaDokdo.ttf'))
   }
   
@@ -22,17 +25,21 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //tint(225)
   background(249, 219, 186);
 
-  //noStroke()
+  //rect background
   strokeWeight(0)
   fill(181, 137, 54)//yellow
   rect(width/2, height/1.3, 650, 340);
-  fill(26, 72, 112)//blue
-  rect(width/4.7, height/3.7, 250, 415);
+  fill(145, 74, 116)//pink
+  rect(width/4.7, height/6, 250, 250);
+  fill(145, 74, 116)//pink
+  rect(width/4.7, height/2.3, 250, 150);
   fill(52, 84, 44)//green
   rect(width/1.45, height/7.3, 380, 200);
-  fill(26, 72, 112)//
-  rect(width/1.45, height/2.45, 380, 200);
-  // // //image(img,width/2,height/2);
+  fill(26, 72, 112)//blue
+  rect(width/1.45, height/2.55, 380, 170);
+
+
+ //image(img,width/2,height/2);
   if (bck[0]) {
     tint(255, 50);
     let img = bck[0];
@@ -43,30 +50,70 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     // image(img,width/2.39, 10, 380, 200)
   }
 
+  if (plants[3]){
+    tint(255,200);
+    let plant = plants[3];
+    //let dance = map(other,0,100,20,40)
+    image(plant,310,height/4.4, width/2,height/3)
+  }
 
   //fonts
   strokeWeight(0)
   textFont('Black Han Sans');
   fill(43, 40, 41)
-  textSize(25);
+  textSize(30);
   textStyle(BOLDITALIC);
   textAlign(CENTER);
-  text(words, width/1.3, height/3.3,width/4,height/2);
+  text(words, width/5, height/3.4,width/4,height/2);
   
-  // microphone
-  if (mic[1]) {
-    tint(220);
-    //strokeWeight(2)
-    let img1 = mic[1];
-    let microphone = map(vocal,0,100,100, 130)
-    image(img1,width-730,220,microphone+100, microphone+100)
-  }
+  // // microphone
+  // if (mic[1]) {
+  //   tint(220);
+  //   //strokeWeight(2)
+  //   let img1 = mic[1];
+  //   let microphone = map(vocal,0,100,100, 130)
+  //   image(img1,width-730,220,microphone+100, microphone+100)
+  // }
+
    //shadow
   strokeWeight(0)
   fill(94, 93, 93)
-  ellipse(width/7,height/1.28,100,15)
-  ellipse(width/4,height/1.11,100,10)
-  ellipse(width/2.08,height/1.06,155,10)
+  //triangle(width/7,height/1.28,width/1,height/2,width/3,height/2)
+  ellipse(width/6.5,height/1.28,100,15)
+  ellipse(width/3.7,height/1.11,100,10)
+  ellipse(width/1.9,height/1.06,175,10)
+  ellipse(width/1.34,height/1.05,105,10)
+  ellipse(width/1.13,height/1.08,70,10)
+
+  //radio
+  let speaker = map(other,0,100,0,20)
+  let anthena = map(vocal,0,100,15,0)
+  fill(74, 53, 53)//
+  rect(width/4.7, height/2.3, 200, 120,10);
+
+  fill(0)
+  circle(width/7, height/2.3, speaker+70)//speaker
+  arc(width/8.5, height/2.75, 20, 15,180,0)
+  rect(width/3.7, height/2.5, 95, 20);
+    //anthena
+  strokeWeight(2)
+  line(width/8.5, height/2.77, width/4.5, height/3+anthena)
+  circle(width/4.5, anthena+height/3, 5)
+  for (var i = 1; i<10; i +=2){
+    let s_line = i*2
+    line(width/7,height/2,width/2,height/2.3)
+  }
+  strokeWeight(0)
+  fill(112, 93, 93)
+  circle(width/3.2, height/2.2, 25)//button
+  circle(width/4, height/2.2, 25)//butoon
+
+
+
+
+
+
+
   // Hi-Hats 
   let h_width = width - 50;
   strokeWeight(0)
@@ -88,7 +135,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //snare
   let bs_width = width - 110
   let snare = map(drum,0,100,100,115)
-  fill(179, 79, 79)
+  fill(86, 117, 150)
   strokeWeight(0)
   rect(bs_width/3.6, height/1.37, 100, snare-48);
   strokeWeight(1.5)
@@ -99,19 +146,21 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(bs_width/3.6, height/1.13,bs_width/2.7,height/1.1);//feet3
   for(var i = 1; i < 20; i+=5){
     let drawcircle = i*5;
+    //stroke(158, 85, 146)
     line(drawcircle+bs_width/4.8,height/1.4,drawcircle+bs_width/4.8,snare+height/1.59);
   
   }
   
   strokeWeight(0)
-  fill(0)
+  fill('black')
   ellipse(bs_width/3.6,height/1.43,snare-5,45)//shadow
 
   fill(225)
   ellipse(bs_width/3.6,height/1.45,snare-5,45)//head
 
   let stick = map(drum,0,100,100,145)
-  strokeWeight(3.5)
+  strokeWeight(2.5)
+  stroke(0)
   line(bs_width/3.8, stick+height/1.85,bs_width/5,stick+height/1.68);//drum stick 1
   
   //let head = map(bass,0,100,100,115)
@@ -195,14 +244,34 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   //text('Now Playing',width/1.4,height/10)
 
 
-  strokeWeight(0)
+  strokeWeight(2.5)
   fill(225)
-  circle(width/2.2+xMOVE,height/4.7,5,5)
+  line(lineY,height/4.7,lineY+xMOVE,height/4.7)
   fill(0)
-  xMOVE = xMOVE + 0.02;
+  xMOVE = xMOVE + 0.027;
   if (xMOVE >160){
     xMOVE = 0;
   }
+   // microphone
+  strokeWeight(0)
+  fill(82, 81, 81)
+  let voice = map(vocal,0,100,55,65)
+  rect(width/1.15,height/1.5,35,voice,10)
+  for(var i = 1; i < 8;i+=2){
+    let lines = i*3.5;
+    let lines2 = i*3;
+    strokeWeight(2)
+    stroke(212, 210, 210)
+    line(width/1.07-voice,height/1.52+lines,width/1.24+voice,height/1.52+lines)
+    line(width/1.172+lines2,height/1.575,width/1.172+lines2,height/1.75+voice)
+  }
+  //stand
+  strokeWeight(1.5)
+  stroke(0)
+  line(width/1.148,height/1.425,width/1.148,height/1.1)
+  line(width/1.09,height/1.08,width/1.148,height/1.1)
+  line(width/1.2,height/1.08,width/1.148,height/1.1)
+  line(width/1.15,height/1.07,width/1.148,height/1.1)
 
   //small snare
   let s_width = width-40
@@ -212,6 +281,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   let msnare = map(drum,0,100,100,80)
   fill(176, 97, 97)
   rotate(19)
+  strokeWeight(0)
   rect(s_width/1.28,s_height/2.65,93,msnare-34)
   strokeWeight(2)
   for(var i = 1; i < 20; i+=5){
@@ -261,7 +331,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(c_width/2.5,c_height/0.98,c_width/2.5,c_height/0.94)
   line(c_width/2.5,c_height/0.98,c_width/2.2,c_height/0.94)
   
-  // music record
+
 
 }
   
