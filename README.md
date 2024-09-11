@@ -7,3 +7,10 @@ A P5JS framework for running a simple music visualizer, intended as a creative c
 Song details: // UPDATE THIS AS YOUR CHANGE YOUR SONG 
 Title = Tokyo Inn
 Artist = HYUKOH(혁오)
+I do not own any image nor GIF that was used in this projet.
+Sources:
+bck = https://pin.it/7bFB1dYN9
+image2 = https://www.deezer.com/en/album/85784202?deferredFl=1
+plants = https://pin.it/4XtGGud9Z
+
+
