@@ -10,8 +10,6 @@ let old_loudest = 0;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
- // please use CSS safe fonts
- 
   rectMode(CENTER);
   console.log(counter)
   if (counter == 0) {
@@ -257,7 +255,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   line(b_width/1.8,b_height/1.35,b_line +b_width/2.09,b_height/1.35)
   line(b_width/1.8,b_height/1.25,b_line +b_width/2.11,b_height/1.25)
   line(b_width/1.8,b_height/1.20,b_line +b_width/2.3,b_height/1.20)
-  //line(width/1.8,height/1.4,width/1.63,height/1.5)
 
   strokeWeight(0)
   stroke(120, 116, 116)
@@ -275,7 +272,6 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   
   strokeWeight(0)
   fill(0)
-  //rect(fstick+width/3.3,height/1.2,hstick+10,20)
   circle(fstick+b_width/3.3,b_height/1.2,hstick+10)//stick head
   
   //MP3 DRAWING
@@ -303,9 +299,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   text('0:21',width/2.25,height/4.9)
   text('3:21',width/1.48,height/4.9)
   textSize(15)
-  //text('Now Playing',width/1.4,height/10)
 
-  
   strokeWeight(2.5)
   fill(225)
   line(lineY,height/4.7,lineY+xMOVE,height/4.7)
