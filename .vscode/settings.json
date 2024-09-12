@@ -1,0 +1,8 @@
+{
+    "editor.columnSelection": true,
+    "editor.experimental.asyncTokenizationLogging": true,
+    "editor.experimental.asyncTokenizationVerification": false,
+    "editor.experimental.asyncTokenization": false,
+    "javascript.suggest.completeFunctionCalls": true,
+    "typescript.suggest.completeFunctionCalls": true
+}

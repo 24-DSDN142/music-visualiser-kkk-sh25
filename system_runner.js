@@ -1,5 +1,5 @@
-const canvasWidth = 540;
-const canvasHeight = 960;
+const canvasWidth = 700;
+const canvasHeight = 800;
 
 
 let mainCanvas;
@@ -43,6 +43,7 @@ function songLoadedSoFar(soFar) {
 function preload() {
   table = loadTable('volumes.csv', 'csv');
   words = loadStrings('words.txt');
+  //myfont = loadFont('East_Sea_Dokdo/EastSeaDokdo-Regular.ttf')
 }
 
 let volumes = [];
@@ -57,7 +58,7 @@ function setup() {
   angleMode(DEGREES);
 
   // create text inputs
-  textInput = createInput('words...');
+  textInput = createInput('TOKYO INN by HYUKOH (혁오)');
   textInput.parent('wordsContainer');
 
   // create sliders
