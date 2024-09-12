@@ -6,7 +6,7 @@ let plants = []
 let lineY = 303
 var xMOVE = 0;
 let angle = -100;
-//let font = []
+let old_loudest = 0;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -19,12 +19,27 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     mic.push(loadImage('mic3.png'));
     image2.push(loadImage('hyukoh.png'))
     plants.push(loadImage('plants.GIF'))
-    //font.push(loadFont('EastSeaDokdo.ttf'))
+    
   }
   
   //background
-  //tint(225)
   background(249, 219, 186);
+  
+  let loudest = 0; // loudest should be 1, 2, 3, 4 (which of 
+  // 
+  if(vocal > drum) {
+    loudest = 1;
+  }
+  
+  if(loudest == old_loudest) {
+    fill(26, 72, 112)//blue
+    rect(width/1.45, height/2.55, 380, 170);
+  }
+  else if(loudest == 1) {
+    fill(0)//black
+    rect(width/1.45, height/2.55, 380, 170);
+  }
+  old_loudest = loudest;
 
   //rect background
   strokeWeight(0)
@@ -36,8 +51,8 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rect(width/4.7, height/2.3, 250, 150);
   fill(52, 84, 44)//green
   rect(width/1.78, height/7.3, 200, 200);
-  fill(26, 72, 112)//blue
-  rect(width/1.45, height/2.55, 380, 170);
+  // fill(26, 72, 112)//blue
+  // rect(width/1.45, height/2.55, 380, 170);
   fill(181, 137, 54)//yellow
   rect(width/1.18, height/7.3, 170, 200);
   // fill(98, 114, 158)
